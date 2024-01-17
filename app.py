@@ -22,7 +22,7 @@ genai.configure(api_key=google_api_key)
 model = genai.GenerativeModel('gemini-pro')
 
 # Initialize our Streamlit app
-st.set_page_config(page_title="Q&A", page_icon="✨")
+st.set_page_config(page_title="AI Generator", page_icon="🚀")
 
 # Add some style and emojis
 # st.subheader("How can I help you today? ❄️")
@@ -31,17 +31,17 @@ USER_AVATAR = "👤"
 BOT_AVATAR = "🤖"
 
 # Sidebar for user to select the role of the chatbot
-st.sidebar.subheader("AI Code Generator 🤖")
+st.sidebar.subheader("Code with AI ☃️")
 
-rol = st.sidebar.selectbox("Select Roll of model",['Code Generator','Act as a Code Review Helper','Act as a Code Error Solver Assistant'])
+rol = st.sidebar.selectbox("Select Roll of model",['Code Generator 🔧','Act as a Code Review Helper 👀','Act as a Code Error Solver Assistant ❌'])
 
-lang = st.sidebar.text_input("Language / Software","python")
+lang = st.sidebar.text_input("Language / Software 📝","python")
 
-want = st.sidebar.selectbox("you want",['Generate code with explanation','Generate 3 different codes','Generate only code','Generate code with error handling','Generate code (shortest as possible)'])
+want = st.sidebar.selectbox("you want ℹ️",['Generate code with explanation ','Generate 3 different codes','Generate only code','Generate code with error handling','Generate code (shortest as possible)'])
 
-tone = st.sidebar.selectbox("Tone",["Professional and informative","Humorous and entertaining","Sarcastic and witty","Friendly and helpful","Formal and academic"]) 
+tone = st.sidebar.selectbox("Tone 🤝",["Professional and informative","Humorous and entertaining","Sarcastic and witty","Friendly and helpful","Formal and academic"]) 
 
-out_len = st.sidebar.text_input("Output contant Language:","english")
+out_len = st.sidebar.text_input("Output content Language 🌐:","english")
 
 st.subheader(f"{rol}❄️")
 
@@ -111,3 +111,20 @@ if prompt := st.chat_input("How can I help?"):
 save_chat_history(st.session_state.messages)
 
 # st.snow()
+
+
+# code_generator_emoji = "🔧"
+# code_review_helper_emoji = "👀"
+# code_error_solver_emoji = "❌"
+
+# generate_with_explanation_emoji = "ℹ️"
+# generate_3_different_codes_emoji = "🔄"
+# generate_only_code_emoji = "💻"
+# generate_with_error_handling_emoji = "🚨"
+# generate_shortest_code_emoji = "🚀"
+
+# professional_and_informative_emoji = "👔💼"
+# humorous_and_entertaining_emoji = "😄🎉"
+# sarcastic_and_witty_emoji = "😏🔍"
+# friendly_and_helpful_emoji = "🤝🆘"
+# formal_and_academic_emoji = "🎓📚"
