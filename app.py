@@ -35,13 +35,14 @@ st.sidebar.subheader("Code with AI ☃️")
 
 rol = st.sidebar.selectbox("Select Roll of model",['Code Generator 🔧','Act as a Code Review Helper 👀','Act as a Code Error Solver Assistant ❌'])
 
-lang = st.sidebar.text_input("Language / Software 📝","python")
+if rol == "Code Generator 🔧":
+    lang = st.sidebar.text_input("Language / Software 📝","python")
 
-want = st.sidebar.selectbox("you want ℹ️",['Generate code with explanation ','Generate 3 different codes','Generate only code','Generate code with error handling','Generate code (shortest as possible)'])
+    want = st.sidebar.selectbox("you want ℹ️",['Generate code with explanation ','Generate 3 different codes','Generate only code','Generate code with error handling','Generate code (shortest as possible)'])
 
-tone = st.sidebar.selectbox("Tone 🤝",["Professional and informative","Humorous and entertaining","Sarcastic and witty","Friendly and helpful","Formal and academic"]) 
+    tone = st.sidebar.selectbox("Tone 🤝",["Professional and informative","Humorous and entertaining","Sarcastic and witty","Friendly and helpful","Formal and academic"]) 
 
-out_len = st.sidebar.text_input("Output content Language 🌐:","english")
+    out_len = st.sidebar.text_input("Output content Language 🌐:","english")
 
 st.subheader(f"{rol}❄️")
 
@@ -76,6 +77,33 @@ def chat_ai(question):
             response_text = f"""Sorry, I not give you answer. 🫣 check question  !!!"""
     return response_text
 
+def main_pr(rol,qu):
+    if rol == "Code Generator 🔧":
+        main_prompt = f"I want you to act as a code generator in {lang}. I will give you a description of the program I want,along with a command {want} and a desired tone {tone}. you will generate a {lang} program, code, or script. The program should be efficient, readable, and well-commented. The program should also run without errors.  My first request is a program that {prompt}." 
+        
+    elif rol =="Act as a Code Review Helper 👀":
+        main_prompt = f"I want you to act as a code review helper for me. I will give you code snippets, and you will only write your feedback on style, best practices, and code smells. The feedback should be descriptive rather than judgmental and include suggestions for improvement. It should only be about the given code snippet, not related to the whole project or other parts of the code. The feedback should not be a list of issues, but a cohesive review comment. My first code snippet is: {qu}"
+    
+    elif rol =="Act as a Code Error Solver Assistant ❌":
+        main_prompt = f'''
+                        I want you to act as an assistant to help me solve code errors. I will provide you with the following information:
+
+                            Error message (if available)
+                            Code snippet (if available)
+                            Additional context (if available)
+
+                        I need you to provide me with the following information:
+
+                            The most likely cause of the error
+                            Provide a list of possible solutions to fix the error
+                            Help me understand the error message (if provided)
+                            Provide a code sample that demonstrates the error and how to fix it (if no code snippet is provided)
+
+                        Please respond in a concise and clear manner. Do not use technical jargon or complex explanations. The code examples should be in Python, and the error messages should be in English.
+                        My first request {qu}
+                        '''
+    return main_prompt
+
 # Sidebar with a button to delete chat history
 with st.sidebar:
     if st.button("Delete Chat History"):
@@ -99,7 +127,8 @@ if prompt := st.chat_input("How can I help?"):
         message_placeholder = st.empty()
         full_response = ""
         with st.spinner("Generating response... 🔄"):
-            main_prompt = f"I want you to act as a code generator in {lang}. I will give you a description of the program I want,along with a command {want} and a desired tone {tone}. you will generate a {lang} program, code, or script. The program should be efficient, readable, and well-commented. The program should also run without errors.  My first request is a program that {prompt}." 
+            
+            main_prompt = main_pr(rol,prompt)
             
             response = chat_ai(main_prompt)
             full_response += response
