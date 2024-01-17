@@ -50,16 +50,9 @@ streamlit run app.py
 3. Choose the desired feature: Code Generator, Code Review Helper, or Code Error Solver Assistant.
 4. Follow the on-screen instructions and prompts.
 
-## Contributing
-
-We welcome contributions from the community! If you have ideas for new features, improvements, or bug fixes, feel free to submit a pull request. Please refer to our [Contribution Guidelines](CONTRIBUTING.md) for more details.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-
-Special thanks to all contributors and supporters who have helped make this Streamlit Code Assistant App possible.
 
 Happy coding! 🚀
