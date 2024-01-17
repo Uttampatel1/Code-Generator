@@ -42,7 +42,7 @@ if rol == "Code Generator 🔧":
 
     tone = st.sidebar.selectbox("Tone 🤝",["Professional and informative","Humorous and entertaining","Sarcastic and witty","Friendly and helpful","Formal and academic"]) 
 
-    out_len = st.sidebar.text_input("Output content Language 🌐:","english")
+    # out_len = st.sidebar.text_input("Output content Language 🌐:","english")
 
 st.subheader(f"{rol}❄️")
 
