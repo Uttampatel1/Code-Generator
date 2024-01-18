@@ -38,7 +38,7 @@ rol = st.sidebar.selectbox("Select Roll of model",['Code Generator 🔧','Act as
 if rol == "Code Generator 🔧":
     lang = st.sidebar.text_input("Language / Software 📝","python")
 
-    want = st.sidebar.selectbox("you want ℹ️",['Generate code with explanation ','Generate 3 different codes','Generate only code','Generate code with error handling','Generate code (shortest as possible)'])
+    want = st.sidebar.selectbox("you want ℹ️",['Generate only code','Generate code with explanation ','Generate 3 different codes','Generate code with error handling','Generate code (shortest as possible)'])
 
     tone = st.sidebar.selectbox("Tone 🤝",["Friendly and helpful","Professional and informative","Humorous and entertaining","Sarcastic and witty","Formal and academic"]) 
 
