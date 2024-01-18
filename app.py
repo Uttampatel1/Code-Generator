@@ -40,7 +40,7 @@ if rol == "Code Generator 🔧":
 
     want = st.sidebar.selectbox("you want ℹ️",['Generate only code','Generate code with explanation ','Generate 3 different codes','Generate code with error handling','Generate code (shortest as possible)'])
 
-    tone = st.sidebar.selectbox("Tone 🤝",["Friendly and helpful","Professional and informative","Humorous and entertaining","Sarcastic and witty","Formal and academic"]) 
+    tone = st.sidebar.selectbox("Tone 🤝",["Friendly and helpful","Professional","Humorous and entertaining","Sarcastic and witty","Formal and academic"]) 
 
     # out_len = st.sidebar.text_input("Output content Language 🌐:","english")
 
